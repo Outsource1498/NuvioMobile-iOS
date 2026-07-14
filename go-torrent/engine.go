@@ -12,6 +12,7 @@ import (
 
 	"github.com/anacrolix/torrent"
 	"github.com/anacrolix/torrent/metainfo"
+	"github.com/anacrolix/torrent/storage"
 	"golang.org/x/time/rate"
 )
 
@@ -95,8 +96,8 @@ func StartEngine(dataDir string, configJson string) (res string) {
 		return "127.0.0.1"
 	}
 	
-	// Use default storage (memory-mapped files) which provides an OS-level RAM cache.
-	// cfg.DefaultStorage is managed automatically by torrent.NewDefaultClientConfig().
+	// Use standard file I/O instead of memory-mapped (mmap) files to avoid iOS sandboxing / virtual memory limit crashes.
+	cfg.DefaultStorage = storage.NewFile(dataDir)
 	// Apply dynamic settings
 	cfg.NoDefaultPortForwarding = !parsedCfg.EnableUpnp
 	cfg.DisableUTP = parsedCfg.ForceTcp
