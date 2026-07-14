@@ -16,6 +16,15 @@
       "tintColor": "#2196F3",
       "versions": [
         {
+          "version": "0.2.20",
+          "buildVersion": "2607141739",
+          "date": "2026-07-14T18:29:01Z",
+          "localizedDescription": "NuvioGo (Based on Go Server). Changelog: ",
+          "downloadURL": "https://github.com/Outsource1498/NuvioMobile-iOS/releases/download/v0.2.20-2607141739/Nuvio-v0.2.20-2607141739-Full.ipa",
+          "size": 45599459,
+          "sha256": "7145c35ce9f34e4effd2acc955aead872ccaf1b92e1ae537aa96477e90f05159"
+        },
+        {
           "version": "0.2.19",
           "buildVersion": "2606160931",
           "date": "2026-06-16T10:09:33Z",
