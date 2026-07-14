@@ -16,6 +16,15 @@
       "tintColor": "#2196F3",
       "versions": [
         {
+          "version": "0.2.21",
+          "buildVersion": "2607142015",
+          "date": "2026-07-14T21:37:38Z",
+          "localizedDescription": "NuvioGo (Based on Go Server). Changelog: fix: correct IPv6 loopback return in ListenHost to prevent nil pointer panic",
+          "downloadURL": "https://github.com/Outsource1498/NuvioMobile-iOS/releases/download/v0.2.21-2607142015/Nuvio-v0.2.21-2607142015-Full.ipa",
+          "size": 45598323,
+          "sha256": "11c463e56d568d00f0e7c96a24ce82df7a8b38535cb974191c4b595e02a051cc"
+        },
+        {
           "version": "0.2.20",
           "buildVersion": "2607141739",
           "date": "2026-07-14T18:29:01Z",
