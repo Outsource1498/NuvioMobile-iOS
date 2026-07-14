@@ -16,6 +16,15 @@
       "tintColor": "#2196F3",
       "versions": [
         {
+          "version": "0.2.22",
+          "buildVersion": "2607142202",
+          "date": "2026-07-14T22:54:59Z",
+          "localizedDescription": "NuvioGo (Based on Go Server). Changelog: fix: use standard file-based storage instead of mmap on iOS to prevent panics",
+          "downloadURL": "https://github.com/Outsource1498/NuvioMobile-iOS/releases/download/v0.2.22-2607142202/Nuvio-v0.2.22-2607142202-Full.ipa",
+          "size": 45601161,
+          "sha256": "67a3012343aa5f59841f75df78f35264f39f895659fc96323960e930e6850ac8"
+        },
+        {
           "version": "0.2.21",
           "buildVersion": "2607142015",
           "date": "2026-07-14T21:37:38Z",
