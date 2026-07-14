@@ -87,6 +87,10 @@ func StartEngine(dataDir string, configJson string) (res string) {
 
 	cfg := torrent.NewDefaultClientConfig()
 	cfg.DataDir = dataDir
+	cfg.DisableIPv6 = true
+	cfg.ListenHost = func(network string) string {
+		return "127.0.0.1"
+	}
 	
 	// Use default storage (memory-mapped files) which provides an OS-level RAM cache.
 	// cfg.DefaultStorage is managed automatically by torrent.NewDefaultClientConfig().
@@ -243,6 +247,7 @@ func AddMagnet(uri string, fileIdx int) (res string) {
 			files := torrentObj.Files()
 			if fIdx >= 0 && fIdx < len(files) {
 				targetFile := files[fIdx]
+				targetFile.Download()
 				// Prioritize first 2 pieces for warmup so HTTP probe doesn't hang
 				pieceLen := torrentObj.Info().PieceLength
 				if pieceLen > 0 {
@@ -352,6 +357,7 @@ func getSessionStatusJson(hash, uri string, fileIdx int, t *torrent.Torrent) (re
 		}
 
 		if targetFile != nil {
+			targetFile.Download()
 			s.FileName = targetFile.DisplayPath()
 			s.TotalSizeBytes = targetFile.Length()
 			s.DownloadedBytes = targetFile.BytesCompleted()
@@ -470,6 +476,8 @@ func handleStream(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "File not found", 404)
 		return
 	}
+
+	targetFile.Download()
 
 	// Prioritize first 2 pieces for warmup so HTTP probe doesn't hang
 	if info != nil {
