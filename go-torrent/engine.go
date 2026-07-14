@@ -89,6 +89,9 @@ func StartEngine(dataDir string, configJson string) (res string) {
 	cfg.DataDir = dataDir
 	cfg.DisableIPv6 = true
 	cfg.ListenHost = func(network string) string {
+		if strings.Contains(network, "6") {
+			return "::1"
+		}
 		return "127.0.0.1"
 	}
 	
